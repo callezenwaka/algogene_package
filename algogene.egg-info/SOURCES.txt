@@ -1,0 +1,9 @@
+setup.py
+algogene/Sequence.py
+algogene/__init__.py
+algogene/utils.py
+algogene.egg-info/PKG-INFO
+algogene.egg-info/SOURCES.txt
+algogene.egg-info/dependency_links.txt
+algogene.egg-info/not-zip-safe
+algogene.egg-info/top_level.txt

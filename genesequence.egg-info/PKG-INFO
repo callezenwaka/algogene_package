@@ -1,7 +1,7 @@
 Metadata-Version: 1.0
-Name: algogene
+Name: genesequence
 Version: 1.0
-Summary: Bioinformatics mini library for manipulating sequences
+Summary: Bioinformatics mini library for manipulating DNA/RNA sequences
 Home-page: UNKNOWN
 Author: Callis Ezenwaka
 Author-email: callisezenwaka@outlook.com

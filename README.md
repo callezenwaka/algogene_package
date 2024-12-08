@@ -1,2 +1,2 @@
-# krane_package
+# krane
 AWS Scholarship Capstone Project - A light-weight bioinformatics package

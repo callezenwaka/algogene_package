@@ -183,5 +183,5 @@ krane --help
 ### After GAE deployment:
 ```bash
 # Your app will be available at
-https://<project-id>.appspot.com/
+https://krane.barestripe.com/
 ```

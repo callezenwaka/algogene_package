@@ -1,0 +1,11 @@
+# artifacts
+__pycache__/
+.pytest_cache
+exercises
+bin
+dist
+test
+tests
+
+# src
+src

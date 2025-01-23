@@ -91,7 +91,7 @@ async def root():
         "demo": "/demo"
     }
 
-@app.get("/healthz", 
+@app.get("/health", 
          response_model=HealthResponse,
          status_code=status.HTTP_200_OK,
          summary="Health Check",

@@ -1,16 +1,16 @@
 runtime: python310
-
+service: krane
 instance_class: F1
-
-automatic_scaling:
-  target_cpu_utilization: 0.65
-  min_instances: 1
-  max_instances: 10
 
 entrypoint: uvicorn krane.web.app:app --host=0.0.0.0 --port=$PORT
 
 env_variables:
   ENVIRONMENT: "production"
+
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 1
+  max_instances: 10
 
 handlers:
   - url: /static

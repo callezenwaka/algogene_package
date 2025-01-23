@@ -1,6 +1,6 @@
 runtime: python310
 service: krane
-instance_class: F1
+instance_class: F4
 
 entrypoint: uvicorn krane.web.app:app --host=0.0.0.0 --port=$PORT
 

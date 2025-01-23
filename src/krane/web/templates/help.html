@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krane Genomics | Help</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/help.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+          <nav class="nav">
+            <div class="nav--item">
+              <img src="/static/img/dna.svg" alt="Logo" class="logo">
+            </div>
+            <div class="nav--item">
+              <div class="nav--item">
+                <a href="/">Home</a>
+              </div>
+              <div class="nav--item">
+                <a href="/help">Help</a>
+              </div>
+              <div class="nav--item">
+                <a href="/demo">Demo</a>
+              </div>
+            </div>
+          </nav>
+        </header>
+        
+        <main class="main">
+            <section class="introduction">
+                <div class="starting">
+                    <h1 class="page--title">Introduction</h1>
+                    <p>Gene sequence library is a lightweight bioinformatics python library that supports both the <code>CLI</code> and <code>GUI</code>. A step by step process on installation for either option is detailed below. The CLI works on any operating system that supports python package installation with <code>pip</code>, while the <code>GUI</code> works on most modern browsers.</p>
+                    <p>To get started, follow the instructions outlined below.</p>
+                </div>
+            </section>
+            <section class="section">
+                <div>
+                    <h2>Using CLI:</h2>
+                </div>
+            </section>
+            <section class="section installation">
+                <div class="section--item prerequisite">
+                    <h3>Prerequisites</h3>
+                    <p>Verify that the latest version of python is installed by opening the <code>terminal</code> or <code>cmd</code> and running the following command:</p>
+                    <div class="command" data-command="python">
+                        <code>python</code>
+				        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>This will set the <code>terminal</code> or <code>cmd</code> to python mode if it is already installed. If otherwise, kindly follow documentation for your preferred OS.</p>
+                </div>
+                <div class="section--item install">
+                    <h3>Installation</h3>
+                    <p>To start using <b>Gene Sequence</b> package, install using the command below:</p>
+                    <div class="command" data-command="pip install krane">
+                        <code>pip install krane</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>This command will install the package. It is advised that separate environment is used for respective projects. Check online for best practices.</p>
+                </div>
+            </section>
+            <hr>
+            <section class="section instantiation">
+                <div class="section--item import">
+                    <h3>Importing Package</h3>
+                    <p>Following successful installation, enter into a python environment and import package with the following command:</p>
+                    <div class="command" data-command="from krane import Sequence">
+                        <code>from krane import Sequence</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                </div>
+                <div class="section--item instantiate">
+                    <h3>Instantiating Object</h3>
+                    <p>Instantiate an gene sequence object to begin working with sequence strands using the command below:</p>
+                    <div class="command" data-command="sequence = Sequence()">
+                        <code>sequence = Sequence()</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="section validation">
+                <div class="section--item getting">
+                    <h3>Getting Sequence</h3>
+                    <p>To get started quikly, call the <code>get_sequence</code> method with the command:</p>
+                    <div class="command" data-command="sequence.get_sequence()">
+                        <code>sequence.get_sequence()</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>An input dialog will appear, paste the <i>sequence strand</i> and hit <code>enter</code>, followed by the <i>sequence bio-type</i> and hit <code>enter</code> and finally the <i>sequence label</i> and hit <code>enter</code></p>
+                </div>
+                <div class="section--item setting">
+                    <h3>Setting Sequence</h3>
+                    <p>Alternatively, call the <code>set_sequence</code> method with the command below:</p>
+                    <div class="command" data-command="sequence.set_sequence(arg1, arg2, arg3)">
+                        <code>sequence.set_sequence(arg1, arg2, arg3)</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>and provide the following parameters:</p>
+                    <ul class="documentation--list">
+                        <li>arg1: sequence strand</li>
+                        <li>arg2: sequence bio type</li>
+                        <li>arg3: sequence label</li>
+                    </ul>
+                    <p>The order of parameters are important for accurate result and output. For example:</p>
+                    <div class="command" data-command="sequence.set_sequence('ACGT', 'DNA', 'Label')">
+                        <code>sequence.set_sequence('ACGT', 'DNA', 'Label')</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                </div>
+                <div class="section--item uploading">
+                    <h3>Uploading File</h3>
+                    <p>Uploading of FASTA file is also supported. To begin, provide the path to file in drive to the <code>upload_sequence</code> method using the command below:</p>
+                    <div class="command" data-command="sequence.upload_sequence('path-to-file.txt')">
+                        <code>sequence.upload_sequence('path-to-file.txt')</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>This could be a user generated file or a FASTA file from online platforms. For example:</p>
+                    <div class="command" data-command="sequence.upload_sequence('../FASTA.txt')">
+                        <code>sequence.upload_sequence('../FASTA.txt')</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                </div>
+                <div class="section--item generating">
+                    <h3>Generating Random Sequence</h3>
+                    <p>Random strand of either of <b>DNA</b> or <b>RNA</b> is also available. Call the <code>generate_sequence</code> method using the command below:</p>
+                    <div class="command" data-command="sequence.generate_sequence(arg1, arg2)">
+                        <code>sequence.generate_sequence(arg1, arg2)</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>and supply the following parameters:</p>
+                    <ul class="documentation--list">
+                        <li>arg1: sequence length</li>
+                        <li>arg2: sequence bio type</li>
+                    </ul>
+                    <p>For example:</p>
+                    <div class="command" data-command="sequence.generate_sequence(40, 'RNA')">
+                        <code>sequence.generate_sequence(40, 'RNA')</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>This is the fastest way to get up and running when working with CLI.</p>
+                </div>
+            </section>
+            <hr>
+            <section class="section invocation">
+                <div class="section--item frequency">
+                    <h3>Counting Base Frequency</h3>
+                    <p>To count nucleotides in a given sequence, call the <code>nucleotide_frequency</code> method with following command:</p>
+                    <div class="command" data-command="sequence.nucleotide_frequency()">
+                        <code>sequence.nucleotide_frequency()</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                </div>
+                <div class="section--item transcription">
+                    <h3>DNA Transcription</h3>
+                    <p>For DNA transcription to RNA, call the <code>transcription</code> method using the command below:</p>
+                    <div class="command" data-command="sequence.transcription()">
+                        <code>sequence.transcription()</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>This returns a strand with Thymine replaced with Uracil.</p>
+                </div>
+                <div class="section--item complement">
+                    <h3>Reverse Complement</h3>
+                    <p>To get the reverse complement of a particular sequence, call the <code>reverse_complement</code> method using the command below:</p>
+                    <div class="command" data-command="sequence.reverse_complement()">
+                        <code>sequence.reverse_complement()</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>This call will swap adenine with thymine and guanine with cytosine in the returned sequence strand.</p>
+                </div>
+                <div class="section--item content">
+                    <h3>GC Content</h3>
+                    <p>The GC content of a sequence can be calculated by call the <code>gc_content</code> method using the command below:</p>
+                    <div class="command" data-command="sequence.gc_content()">
+                        <code>sequence.gc_content()</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>This call returns the GC Content in a sequence strand.</p>
+                </div>
+                <div class="section--item aminoacid">
+                    <h3>Translate to Amino-acid</h3>
+                    <p>Translating bases or a sequence strand to aminoacid can be accomplished by calling the <code>translate_seq</code> method using the command below:</p>
+                    <div class="command" data-command="sequence.translate_seq()">
+                        <code>sequence.translate_seq()</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>This returns the amino-acid version of the translated sequence strand.</p>
+                </div>
+                <div class="section--item frames">
+                    <h3>Getting Reading Frames</h3>
+                    <p>Grouping successive bases in a sequence of DNA that into codons for the amino acids encoded by the DNA is done using <code>gen_reading_frames</code> method. The the command is shown below:</p>
+                    <div class="command" data-command="sequence.gen_reading_frames()">
+                        <code>sequence.gen_reading_frames()</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>This call returns a 6 reading frame of a sequence strand.</p>
+                </div>
+                <div class="section--item proteins">
+                    <h3>Translating to Proteins</h3>
+                    <p>In order ot translate a sequence strand into protein, call the <code>all_proteins_from_orfs</code> method using the command below:</p>
+                    <div class="command" data-command="sequence.all_proteins_from_orfs()">
+                        <code>sequence.all_proteins_from_orfs()</code>
+                        <button type="button" class="copy-button">Copy</button>
+                    </div>
+                    <p>It returns all the available proteins found in a given strand. This output could be further sorted to either get the longest or the shortest strand.</p>
+                </div>
+            </section>
+            <hr>
+            <section class="section gui">
+                <div>
+                    <h2>Using GUI:</h2>
+                </div>
+            </section>
+            <section class="section">
+                <div class="section--item downloading">
+                    <h3>Downloading Application</h3>
+                    <p>Click <a href="https://dev.d2j6j4pgiubh78.amplifyapp.com/#installer">Installer</a> link for respective Operating System (OS) to get started. Then, navigate and clone the repository. The README.md document contains the step by step guide on how to build the desktop app for each OS.</p>
+                    <p>Once successfully installed, double-click the application to launch the application.</p>
+                </div>
+            </section>
+            <hr>
+            <section class="section">
+                <div class="section--item using">
+                    <h3>Getting Data</h3>
+                    <p>The GUI accepts data in three forms, namely:</p>
+                    <ul class="documentation--list">
+                        <li>Manual input</li>
+                        <li>File upload</li>
+                        <li>Random sequence generation</li>
+                    </ul>
+                    <p>To manually enter data, type in or paste sequence strand in the input <code>textarea</code>, select bio-type from the drop down, and input the sequence label in the label input. Click the <code>Submit</code> button to load your data. If successful, aequence summary will be displayed in the output <code>textarea</code>.</p>
+                    <p>For file upload, click the <code>Select File</code> button. A dialog will appear, select a <code>.txt</code> FASTA file from drive and upload. On successful upload, the sequence summary will be displayed in the output <code>textarea</code>.</p>
+                    <p>With random sequence generation, firstly select the checkbox under the <code>Submit</code> button. Then, select the sequence type from the drop down, and enter the desired length to be generated.</p>
+                </div>
+            </section>
+            <hr>
+            <section class="section">
+                <div class="section--item selecting">
+                    <h3>Selecting Functions</h3>
+                    <p>A list of functions are available for manipulating and transforming sequence strands. These options are contained within the drop down menu above the output textarea. Some of them include:</p>
+                    <ul class="documentation--list">
+                        <li>Sequence Summary</li>
+                        <li>Reverse Complement</li>
+                        <li>GC Content</li>
+                    </ul>
+                    <p>The output is displayed in the output textarea.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <span>Krane &copy; <span id="currentYear"></span></span>
+        </footer>
+    </div>
+
+    <script src="/static/js/script.js" defer></script>
+    <script src="/static/js/help.js" defer></script>
+</body>
+</html>

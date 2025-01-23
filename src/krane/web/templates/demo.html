@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Krane Sequence Analysis Tool">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Krane Genomics | Demo</title>
+	<link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+	<link href="/static/css/style.css" rel="stylesheet">
+	<link href="/static/css/demo.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+        <header class="header">
+          <nav class="nav">
+            <div class="nav--item">
+              <img src="/static/img/dna.svg" alt="Logo" class="logo">
+            </div>
+            <div class="nav--item">
+              <div class="nav--item">
+                <a href="/">Home</a>
+              </div>
+              <div class="nav--item">
+                <a href="/help">Help</a>
+              </div>
+              <div class="nav--item">
+                <a href="/demo">Demo</a>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+		<!-- <div class="wrapper"> -->
+			<main class="main">
+				<div class="sequence--items" id="input">
+					<div class="sequence--item" id="sequence-input-container">
+						<label for="sequence--input" class="sr-only sr-only-focusable">Sequence Input</label>
+						<textarea 
+							id="sequence--input" 
+							name="sequence--input" 
+							placeholder="Paste sequence strand"
+							class="sequence--input" 
+							cols="30" 
+							rows="10"
+						></textarea>
+					</div>
+					<div class="sequence--items">
+						<div class="sequence--item">
+							<label class="sequence--label" for="sequence_type">Sequence Type:</label>
+							<select class="sequence--select" name="sequence_type" id="sequence_type">
+								<option value="">--</option>
+								<option value="DNA">DNA</option>
+								<option value="RNA">RNA</option>
+							</select>
+						</div>
+						<div class="sequence--item" id="length-container">
+							<label class="sequence--label" for="sequence_length">Sequence Length:</label>
+							<input type="number" class="sequence--text" name="sequence_length" id="sequence_length">
+						</div>
+						<div class="sequence--item" id="label-container">
+							<label class="sequence--label" for="sequence_label">Sequence Label:</label>
+							<input type="text" class="sequence--text" name="sequence_label" id="sequence_label">
+						</div>
+						<div class="sequence--item hidden">
+							<label class="sequence--label" for="sequence_file">Sequence File: </label>
+							<input type="file" class="sequence--file" id="sequence_file" accept=".fasta,.txt">
+						</div>
+					</div>
+					<div class="sequence--buttons">
+						<button type="button" class="sequence--button" id="select-file-btn">Select File</button>
+						<button type="button" class="sequence--button" id="generate-btn" style="display: none;">
+							Generate Bases
+						</button>
+						<button type="button" class="sequence--button" id="submit-btn">Submit</button>
+					</div>
+					<div>
+						<label for="random_bases">
+							<input type="checkbox" id="random_bases" name="random_bases"> Random Bases
+						</label>
+					</div>
+				</div>
+				<hr>
+				<div class="output" id="output">
+					<div class="sequence--item">
+						<label class="sequence--label" for="sequence_action">Action:</label>
+						<select class="sequence--select" name="sequence_action" id="sequence_action">
+							<option value="">--</option>
+							<option value="information">Sequence Summary</option>
+							<option value="frequency">Base Frequency</option>
+							<option value="transcription">DNA Transcription</option>
+							<option value="complement">Reverse Complement</option>
+							<option value="content">GC Content</option>
+							<option value="aminoacid">Translate To Amino acid</option>
+							<option value="proteins">Translate To Proteins</option>
+						</select>
+					</div>
+					<div class="sequence--item">
+						<label for="sequence--output" class="sr-only sr-only-focusable">Sequence Output</label>
+						<textarea 
+							id="sequence--output" 
+							name="sequence--output" 
+							class="sequence--output" 
+							cols="30" 
+							rows="10"
+							readonly
+						></textarea>
+					</div>
+					<div id="protein-options" style="display: none;">
+						<label for="sort_protein">
+							<input type="checkbox" id="sort_protein" name="sort_protein"> Sort Protein
+						</label>
+					</div>
+				</div>
+			</main>
+			<!-- <aside class="aside">
+				<div>
+					<button type="button" class="sequence--button" id="select-file-btn">Select File</button>
+					<button type="button" class="sequence--button" id="generate-btn" style="display: none;">
+						Generate Bases
+					</button>
+					<button type="button" class="sequence--button" id="submit-btn">Submit</button>
+					<label for="random_bases">
+						<input type="checkbox" id="random_bases" name="random_bases"> Random Bases
+					</label>
+				</div>
+			</aside> -->
+		<!-- </div> -->
+
+		<footer class="footer">
+			<span>Krane &copy; <span id="currentYear"></span></span>
+		</footer>
+	</div>
+
+    <script src="/static/js/script.js" defer></script>
+	<script src="/static/js/demo.js" defer></script>
+</body>
+
+</html>

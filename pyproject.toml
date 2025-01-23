@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+dynamic = ["version"]
+name = "krane"
+requires-python = ">= 3.10"
+authors = [
+  {name = "Callis Ezenwaka", email = "callisezenwaka@outlook.com"},
+]
+maintainers = [
+  {name = "Callis Ezenwaka", email = "callisezenwaka@outlook.com"},
+]
+description = "A light-weight bioinformatics package"
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["Bioinformatics", "python", "fastapi", "web", "Biotech", "Genomics"]
+classifiers = [
+  # How mature is this project? Common values are
+  #   3 - Alpha
+  #   4 - Beta
+  #   5 - Production/Stable
+  "Development Status :: 5 - Production/Stable",
+
+  # Indicate who your project is intended for
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Build Tools",
+
+  # Specify the Python versions you support here.
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  
+  "Operating System :: OS Independent",
+]
+dependencies = [
+    "fastapi>=0.115.6",
+    "uvicorn>=0.34.0",
+    "pydantic>=2.10.3",
+    "click>=8.1.7",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest", 
+  "pytest-cov", 
+  "pytest-regressions", 
+]
+
+dev = [
+  "black",
+  "pyyaml",
+  "pre-commit",
+  "tox",
+]
+
+[project.urls]
+Homepage = "https://github.com/callezenwaka/krane"
+Documentation = "https://krane.readthedocs.io/en/latest/"
+Repository = "https://github.com/callezenwaka/krane.git"
+Issues = "https://github.com/callezenwaka/krane/issues"
+Changelog = "https://github.com/callezenwaka/krane/blob/main/CHANGELOG.md"
+
+[project.scripts]
+krane-web = "krane.web.app:start_server"
+krane = "krane.cli.commands:cli"

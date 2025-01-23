@@ -1,0 +1,18 @@
+exclude docs
+recursive-exclude docs *
+exclude src
+recursive-exclude src *
+
+exclude .flake8
+exclude .pre-commit-config.yaml
+exclude .readthedocs.yaml
+exclude requirements.txt
+recursive-exclude ci *.yml
+
+include LICENSE
+include MANIFEST.in
+include README.md
+include pyproject.toml
+
+global-exclude .DS_Store
+global-exclude *.pyc

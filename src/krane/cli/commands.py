@@ -1,3 +1,6 @@
+# import library
+import os
+import sys
 import click
 from ..core.sequence import Sequence, NUCLEOTIDE_BASE
 
@@ -26,36 +29,6 @@ def cli():
     """
     pass
 
-# @cli.command('analyze')
-# @click.argument('sequence')
-# @click.option('--type', '-t', type=click.Choice(['DNA', 'RNA'], case_sensitive=False), 
-#               default='DNA', show_default=True,
-#               help='Type of sequence (DNA or RNA)')
-# @click.option('--label', '-l', default='No Label', show_default=True,
-#               help='Label for the sequence')
-# def analyze(sequence, type, label):
-#     """
-#     Analyze a DNA/RNA sequence and show its properties.
-
-#     SEQUENCE: The DNA/RNA sequence to analyze (e.g., ATCG)
-
-#     Examples:
-#         krane analyze ATCG
-#         krane analyze ATCG --type DNA --label "Test Sequence"
-#         krane analyze AUCG --type RNA
-#     """
-#     try:
-#         seq = Sequence(sequence, type, label)
-#         print_sequence_info(seq)
-#         click.echo(f"\nNucleotide Frequency: {seq.nucleotide_frequency()}")
-#         click.echo(f"GC Content: {seq.gc_content()}")
-#     except Exception as e:
-#         click.echo(f"Error: {str(e)}", err=True)
-
-import os
-import sys
-import click
-
 @cli.command('analyze')
 @click.argument('sequence')
 @click.option('--type', '-t', type=click.Choice(['DNA', 'RNA'], case_sensitive=False), 
@@ -80,13 +53,21 @@ def analyze(sequence, type, label):
         file_path = sequence[1:]
         if not os.path.exists(file_path):
             click.echo(f"Error: File '{file_path}' not found", err=True)
-            sys.exit(1)  # Set non-zero exit code for file-not-found error
+            sys.exit(1)
         try:
             with open(file_path, 'r') as file:
                 sequence = file.read().strip()
         except Exception as e:
             click.echo(f"Error reading file: {str(e)}", err=True)
-            sys.exit(1)  # Set non-zero exit code for file-read error
+            sys.exit(1)
+
+    # Validate sequence based on type
+    valid_nucleotides = {'DNA': 'ATCG', 'RNA': 'AUCG'}
+    invalid_chars = set(sequence.upper()) - set(valid_nucleotides[type.upper()])
+
+    if invalid_chars:
+        click.echo(f"Error: Invalid characters in sequence: {', '.join(invalid_chars)}", err=True)
+        sys.exit(1)
 
     try:
         seq = Sequence(sequence, type, label)
@@ -95,34 +76,8 @@ def analyze(sequence, type, label):
         click.echo(f"GC Content: {seq.gc_content()}")
     except Exception as e:
         click.echo(f"Error: {str(e)}", err=True)
-        sys.exit(1)  # Set non-zero exit code for other errors
+        sys.exit(1)
 
-
-# @cli.command('generate')
-# @click.option('--length', '-l', type=int, default=10, show_default=True,
-#               help='Length of sequence to generate')
-# @click.option('--type', '-t', type=click.Choice(['DNA', 'RNA'], case_sensitive=False),
-#               default='DNA', show_default=True,
-#               help='Type of sequence to generate')
-# def generate(length, type):
-#     """
-#     Generate a random DNA/RNA sequence.
-
-#     The sequence will contain random valid nucleotides based on the specified type.
-#     Valid nucleotides for DNA: A, T, C, G
-#     Valid nucleotides for RNA: A, U, C, G
-
-#     Examples:
-#         krane generate
-#         krane generate --length 20 --type DNA
-#         krane generate -l 15 -t RNA
-#     """
-#     try:
-#         seq = Sequence()
-#         seq.generate_sequence(length, type)
-#         print_sequence_info(seq)
-#     except Exception as e:
-#         click.echo(f"Error: {str(e)}", err=True)
 
 @cli.command('generate')
 @click.option('--length', '-l', type=int, default=10, show_default=True,

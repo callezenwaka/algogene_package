@@ -26,9 +26,8 @@ def test_analyze_command(runner):
 def test_analyze_invalid_sequence(runner):
     """Test handling of invalid sequence in analyze command"""
     result = runner.invoke(cli, ['analyze', 'ATCGX', '--type', 'DNA'])
-    assert result.exit_code == 0
-    assert 'Error' in result.output
-    assert 'does not seem to be a correct DNA sequence' in result.output
+    assert result.exit_code == 1
+    assert "Error: Invalid characters in sequence: X" in result.output
 
 def test_generate_command(runner):
     """Test sequence generation command"""
@@ -41,32 +40,6 @@ def test_generate_invalid_length(runner):
     """Test handling of invalid length in generate command"""
     result = runner.invoke(cli, ['generate', '--length', '-5'])
     assert "Length must be a positive number" in result.output or "Invalid length" in result.output
-
-# def test_generate_invalid_length(runner):
-#     """Test handling of invalid length in generate command"""
-#     result = runner.invoke(cli, ['generate', '--length', '-5'])
-#     assert "Length must be a positive number" in result.output
-
-# def test_generate_invalid_length(runner):
-#     """Test handling of invalid length in generate command"""
-#     result = runner.invoke(cli, ['generate', '--length', '-5'])
-#     assert result.exit_code == 0  # Because we're using try-except
-#     assert "Error" in result.output
-#     assert "Length must be a positive number" in result.output
-#     assert "-5" in result.output
-
-# def test_generate_invalid_length(runner):
-#     """Test handling of invalid length in generate command"""
-#     result = runner.invoke(cli, ['generate', '--length', '-5'])
-#     assert result.exit_code == 0  # Since using try-except
-#     assert 'Error' in result.output
-#     assert 'Length must be positive' in result.output  # Adjust this message to match your actual error
-
-# def test_generate_invalid_length(runner):
-#     """Test handling of invalid length in generate command"""
-#     result = runner.invoke(cli, ['generate', '--length', '-5'])
-#     assert result.exit_code != 0
-#     assert 'Error' in result.output
 
 def test_transcribe_command(runner):
     """Test transcription command"""
@@ -113,16 +86,18 @@ def test_interactive_error_handling(runner):
         result = runner.invoke(cli, ['analyze', 'ATCG'], input='n\n')
         assert result.exit_code == 0
 
-# def test_file_not_found(runner):
-#     """Test handling of non-existent input file"""
-#     with runner.isolated_filesystem():
-#         result = runner.invoke(cli, ['analyze', '@nonexistent.fasta'])
-#         assert result.exit_code != 0
-#         assert 'Error' in result.output
-
 def test_file_not_found(runner):
     """Test handling of non-existent input file"""
     with runner.isolated_filesystem():
         result = runner.invoke(cli, ['analyze', '@nonexistent.fasta'])
-        assert result.exit_code != 0
+        assert result.exit_code == 1
         assert "Error: File 'nonexistent.fasta' not found" in result.output
+
+def test_file_with_invalid_sequence(runner):
+    """Test handling of invalid sequence from file input"""
+    with runner.isolated_filesystem():
+        with open('invalid.fasta', 'w') as file:
+            file.write('ATCGX')  # Invalid DNA sequence
+        result = runner.invoke(cli, ['analyze', '@invalid.fasta', '--type', 'DNA'])
+        assert result.exit_code == 1
+        assert "Error: Invalid characters in sequence: X" in result.output

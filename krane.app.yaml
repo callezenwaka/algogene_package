@@ -2,8 +2,8 @@ runtime: python310
 service: krane
 instance_class: F4
 
-# entrypoint: uvicorn krane.web.app:app --host=0.0.0.0 --port=$PORT
-entrypoint: uvicorn src.krane.web.app:app --host=0.0.0.0 --port=$PORT
+# Project entrypoint 
+entrypoint: uvicorn krane.web.app:app --host=0.0.0.0 --port=$PORT
 
 env_variables:
   ENVIRONMENT: "production"

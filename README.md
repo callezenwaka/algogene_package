@@ -212,9 +212,24 @@ git push origin main
 gcloud app deploy krane.app.yaml --project barestripe
 ```
 
+### Make executable
+```bash
+chmod +x deploy.web.sh
+```
+
+### Run executable
+```bash
+./deploy.web.sh
+```
+
+### Map domain
+```bash
+gcloud app deploy dispatch.yaml --project barestripe
+```
+
 ## Testing the deployments
 
-### After PyPI deployment:
+### After PyPI deployment
 ```bash
 # In a new virtual environment
 pip install krane

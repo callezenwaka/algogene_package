@@ -60,11 +60,8 @@ instance/
 # Scrapy stuff:
 .scrapy
 
-# Sphinx documentation
-docs/_build/
-docs/examples/generated/
-docs/api/
-warnings.txt
+# krane deploy
+/krane
 
 # PyBuilder
 target/
@@ -116,22 +113,5 @@ node_modules/
 # MacOSX store files
 **/.DS_Store
 
-# THEME FILES
-# files from the gallery screenshots
-docs/_static/gallery
-
-# Our site profile tests
-profile.svg
-
-# Compiled translation files (are compiled at build time)
-src/syft_sphinx_theme/locale/*/*/*.mo
-
-# jupyterlite db
-.jupyterlite.doit.db
-
-# test setup
-.no-file
-
 # unused files
-_contents
 bin

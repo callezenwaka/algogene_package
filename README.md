@@ -164,9 +164,14 @@ pytest -k "test_sequence"
 
 ### For PyPI
 ```bash
-# Tag a new version
-git tag -a v0.1.1 -m "Release version v0.1.1"
+# Tag a new version by creating annotated tags
+# git tag -a v0.1.0 -m "Release version v0.1.0" 
+# git tag -a v0.1.0 -m "Version 0.1.0" # setuptools_scm does not recognize lightweight tags
+git tag -a v0.1.0 -m "Release version 0.1.0" # setuptools_scm does not recognize lightweight tags
+# Push the Specific Tag to Remote
 git push origin v0.1.1
+# Push all tags to the remote
+git push --tags --force  # Push updated tags to remote
 # This triggers PyPI workflow
 ```
 

@@ -175,6 +175,17 @@ git push --tags --force  # Push updated tags to remote
 # This triggers PyPI workflow
 ```
 
+### Debug tag
+```bash
+git ls-remote --tags origin
+git push origin --delete v0.1.0 # Deletes a tag named v0.1.0 from the remote repository named origin
+git fetch --prune origin # Removes any remote-tracking references in local that no longer exist in the remote.
+git tag
+git tag -l | xargs git tag -d # Removes local tag
+git show v0.1.1
+git tag -d v0.1.1 v0.1.0
+```
+
 ### Force update tag locally first:
 ```bash
 git tag -f v0.1.0 <local-commit-hash>

@@ -17,20 +17,11 @@ readme = "README.md"
 license = { file = "LICENSE" }
 keywords = ["Bioinformatics", "python", "fastapi", "web", "Biotech", "Genomics"]
 classifiers = [
-  # How mature is this project? Common values are
-  #   3 - Alpha
-  #   4 - Beta
-  #   5 - Production/Stable
   "Development Status :: 5 - Production/Stable",
-
-  # Indicate who your project is intended for
   "Intended Audience :: Developers",
   "Topic :: Software Development :: Build Tools",
-
-  # Specify the Python versions you support here.
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
-  
   "Operating System :: OS Independent",
 ]
 dependencies = [
@@ -64,6 +55,3 @@ Changelog = "https://github.com/callezenwaka/krane/blob/main/CHANGELOG.md"
 [project.scripts]
 krane-web = "krane.web.app:start_server"
 krane = "krane.cli.commands:cli"
-
-[tool.setuptools.dynamic]
-version = {attr = "krane.__version__"}  # any module attribute compatible with ast.literal_eval

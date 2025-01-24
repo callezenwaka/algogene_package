@@ -165,8 +165,8 @@ pytest -k "test_sequence"
 ### For PyPI
 ```bash
 # Tag a new version
-git tag -a v0.1.0 -m "Release version 0.1.0"
-git push origin v0.1.0
+git tag -a v0.1.1 -m "Release version v0.1.1"
+git push origin v0.1.1
 # This triggers PyPI workflow
 ```
 

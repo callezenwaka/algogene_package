@@ -169,10 +169,16 @@ pytest -k "test_sequence"
 # git tag -a v0.1.0 -m "Version 0.1.0" # setuptools_scm does not recognize lightweight tags
 git tag -a v0.1.0 -m "Release version 0.1.0" # setuptools_scm does not recognize lightweight tags
 # Push the Specific Tag to Remote
-git push origin v0.1.1
+git push origin v0.1.0
 # Push all tags to the remote
 git push --tags --force  # Push updated tags to remote
 # This triggers PyPI workflow
+```
+
+### Force update tag locally first:
+```bash
+git tag -f v0.1.0 <local-commit-hash>
+git push -f origin v0.1.0
 ```
 
 ### Deployment to GAE 

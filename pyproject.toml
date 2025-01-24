@@ -55,3 +55,5 @@ Changelog = "https://github.com/callezenwaka/krane/blob/main/CHANGELOG.md"
 [project.scripts]
 krane-web = "krane.web.app:start_server"
 krane = "krane.cli.commands:cli"
+
+[tool.setuptools_scm] write_to = "src/krane/version.py"

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools >= 61.0"]
+requires = ["setuptools", "setuptools_scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -64,3 +64,6 @@ Changelog = "https://github.com/callezenwaka/krane/blob/main/CHANGELOG.md"
 [project.scripts]
 krane-web = "krane.web.app:start_server"
 krane = "krane.cli.commands:cli"
+
+[tool.setuptools.dynamic]
+version = {attr = "krane.__version__"}  # any module attribute compatible with ast.literal_eval

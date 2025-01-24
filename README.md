@@ -4,34 +4,54 @@ AWS Scholarship Capstone Project - A light-weight bioinformatics package
 ## Folder structure
 ```bash
 krane/
-├── src/
-│   └── krane/
-│       ├── __init__.py         # Package version and top-level imports
-│       ├── core/
-│       │   ├── __init__.py
-│       │   ├── models.py       # Pydantic/data models
-│       │   └── sequence.py     # Core sequence analysis logic
-│       ├── web/
-│       │   ├── __init__.py
-│       │   ├── app.py          # FastAPI application setup
-│       │   ├── routes/
-│       │   │   ├── __init__.py
-│       │   │   ├── sequence.py # Sequence-related endpoints
-│       │   │   └── utils.py    # Utility endpoints
-│       │   ├── schemas/
-│       │   │   ├── __init__.py
-│       │   │   └── sequence.py # Request/Response models
-│       │   └── templates/      # For web interface if needed
-│       └── cli/
-│           ├── __init__.py
-│           └── commands.py     # CLI commands
-├── tests/
-│   ├── __init__.py
-│   ├── test_core.py
-│   └── test_web.py
-├── pyproject.toml             # Project metadata and dependencies
+├── LICENSE
+├── MANIFEST.in
 ├── README.md
-└── LICENSE
+├── dispatch.yaml                   # For GAE domain mapping
+├── gae-deploy-flow.yml             # For GAE workflow (move to workflow)
+├── krane.app.yaml                  # For GAE gloud deployment
+├── noxfile.py                      
+├── pyproject.toml
+├── requirements-dev.txt
+├── requirements.txt
+├── src
+│   └── krane
+│       ├── README.md
+│       ├── __init__.py             # Package version and top-level imports
+│       ├── cli
+│       │   ├── __init__.py
+│       │   └── commands.py         # CLI commands
+│       ├── core
+│       │   ├── __init__.py
+│       │   ├── models.py           # Pydantic/data models
+│       │   ├── sequence.py         # Core sequence analysis logic
+│       │   └── utils.py
+│       └── web
+│           ├── __init__.py
+│           ├── app.py              # FastAPI application setup
+│           ├── documentation.md    # Markdown documentation
+│           ├── index.md            # Markdown home description
+│           ├── routes
+│           │   ├── __init__.py
+│           │   ├── sequence.py     # Sequence-related endpoints
+│           │   └── utils.py        # Utility endpoints
+│           ├── schemas
+│           │   ├── __init__.py
+│           │   └── sequence.py     # Request/Response models
+│           ├── static
+│           │   ├── css
+│           │   ├── img
+│           │   └── js
+│           └── templates           # For web interface
+│               ├── demo.html
+│               ├── help.html
+│               └── index.html
+├── tests                           # For automated tests
+│   ├── __init__.py
+│   ├── test_cli.py
+│   ├── test_core.py
+│   └── test_web.py
+└── tox.ini
 ```
 
 ## Generate requirements.txt

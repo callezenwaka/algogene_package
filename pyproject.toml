@@ -1,3 +1,4 @@
+# pyproject.toml
 [build-system]
 requires = ["setuptools", "setuptools_scm"]
 build-backend = "setuptools.build_meta"
@@ -56,10 +57,7 @@ Changelog = "https://github.com/callezenwaka/krane/blob/main/CHANGELOG.md"
 krane-web = "krane.web.app:start_server"
 krane = "krane.cli.commands:cli"
 
-[tool.setuptools.packages.find]
-where = ["src"]  # list of folders that contain the packages (["."] by default)
-include = ["krane*"]  # package names should match these glob patterns (["*"] by default)
-exclude = ["tests*"]  # exclude packages matching these glob patterns (empty by default)
+[tool.setuptools]
+package-dir = {"" = "src"}
 
 [tool.setuptools_scm]
-# version_file = "krane/_version.py"

@@ -10,7 +10,6 @@ krane/
 ├── dispatch.yaml                   # For GAE domain mapping
 ├── gae-deploy-flow.yml             # For GAE workflow (move to workflow)
 ├── krane.app.yaml                  # For GAE gloud deployment
-├── noxfile.py                      
 ├── pyproject.toml
 ├── requirements-dev.txt
 ├── requirements.txt

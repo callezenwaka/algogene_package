@@ -207,6 +207,11 @@ git push origin main
 # This triggers GAE workflow
 ```
 
+### For manual GAE deployment
+```bash
+gcloud app deploy krane.app.yaml --project barestripe
+```
+
 ## Testing the deployments
 
 ### After PyPI deployment:

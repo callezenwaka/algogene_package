@@ -56,5 +56,10 @@ Changelog = "https://github.com/callezenwaka/krane/blob/main/CHANGELOG.md"
 krane-web = "krane.web.app:start_server"
 krane = "krane.cli.commands:cli"
 
-[tool.setuptools_scm] 
-write_to = "src/krane/version.py"
+[tool.setuptools.packages.find]
+where = ["src"]  # list of folders that contain the packages (["."] by default)
+include = ["krane*"]  # package names should match these glob patterns (["*"] by default)
+exclude = ["tests*"]  # exclude packages matching these glob patterns (empty by default)
+
+[tool.setuptools_scm]
+# version_file = "krane/_version.py"
